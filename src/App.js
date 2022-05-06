@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import useRefExample1 from './components/useRefExample1'
+import {useRef} from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const inputRef = useRef();
+const paraRef = useRef();
+const onSubmit = e => {
+  e.preventDefault();
+  console.log(inputRef.current.value);
+  inputRef.current.value = 'Hello';
+  inputRef.current.style.backgroundColor = 'purple';
+  paraRef.current.innerText = 'Goodbye';
 }
 
-export default App;
+  return (
+    <div className='container mt-5'>
+      <form onSubmit={onSubmit}>
+        <label htmlFor='name'>Name</label>
+        <input 
+        type='text' 
+        ref = {inputRef}
+        id='name' 
+        className='form-control mb-2'/>
+        <button type='submit' className='btn btn-primary'>Submit</button>
+        <p
+        onClick={() => inputRef.current.focus()}
+        ref={paraRef}>Hello!</p>
+      </form>
+    </div>
+  )
+}
+
+export default App
