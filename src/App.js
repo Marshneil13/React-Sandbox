@@ -3,14 +3,14 @@ import React from 'react'
 // import UseRefExample2 from './components/UseRefExample2'
 // import {useRef} from 'react'
 // import UseMemoExample from './components/UseMemoExample'
-import UseCallbackExample from './components/UseCallbackExample'
+import CustomHookExample1 from './components/CustomHookExample1'
 
 function App() {
-
+ 
 
   return (
     <div className='container mt-5'>
-      <UseCallbackExample/>
+      <CustomHookExample1/>
     </div>
     )
 }
